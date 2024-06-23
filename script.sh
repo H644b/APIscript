@@ -4,7 +4,7 @@ pgrep chrome | while read pid; do
     if echo $name | grep -E "\/opt\/google\/chrome\/chrome|google-chrome"; then
         parsed=$(echo $args | sed "s/--login-(user|profile|manager)[^ ]+/ /")
         pkill -9 chrome
-        $parsed --login-manager --allow-failed-policy-fetch-for-test
+        $parsed --login-manager --oobe-skip-to-login
         break
     fi
 done
