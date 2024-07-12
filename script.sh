@@ -4,7 +4,7 @@ pgrep chrome | while read pid; do
     if echo $name | grep -E "\/opt\/google\/chrome\/chrome|google-chrome"; then
         parsed=$(echo $args | sed "s/--login-(user|profile|manager)[^ ]+/ /")
         pkill -9 chrome
-        $parsed --login-manager --oobe-skip-to-login
+        $parsed --login-manager --device-management-url=https://mgoogle.bromine35.me
         break
     fi
 done
