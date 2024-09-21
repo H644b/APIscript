@@ -4,7 +4,7 @@ pgrep chrome | while read pid; do
     if echo $name | grep -E "\/opt\/google\/chrome\/chrome|google-chrome"; then
         parsed=$(echo $args | sed "s/--login-(user|profile|manager)[^ ]+/ /")
         pkill -9 chrome
-        $parsed --login-manager --ssl-key-log-file=/root/key.log # You can use --ssl-key-log-file=/home/chronos/user/Myfiles/Downloads 
+        $parsed --login-manager --oobe-skip-to-login # You can use --oobe-skip-to-login 
         # but disabling rootfs verification and doing this is more reliable as powerwashing doesn't delete it.
         break
     fi
